@@ -1,0 +1,70 @@
+
+import { HttpClient } from 'aurelia-http-client';
+import {MovieData} from "./movieData";
+// import movies from './movies.json';
+//baraye vared kardan json rahe paino estefade kon age nakhasti movieData.js o joda kelas barash doros koni
+
+export class App {
+  constructor(movieData) {
+    this.message = '';
+    //this.http = new HttpClient();
+    this.movieData=movieData;
+    
+  }
+  async activate() {
+    this.message = 'list of movies';
+    let result;
+    try {
+      result = await this.http.get('movies.json').then(response =>{
+        this.movies = response.content;
+        console.log(response.content, 'response');
+      });
+    } catch (error) {
+      console.log('YOU GOT AN ERROR');
+    }
+    
+
+    // let result;
+    // this.http.get('movies.json').then(response => {
+    //    result = response;
+    //    console.log("result inside", result);
+    // });
+
+    //  .then(response => {
+    //    //this.movies = response.content;
+    //  });
+  }
+  changeMessage() {
+    this.message = 'Bye';
+  }
+}
+
+
+
+///////////////////////////////////
+app.html
+<template>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">Movies</a>
+      </div>
+    </div>
+  </nav>
+  <div class="message-class">${message}</div>
+  <div> you have ${movies.length} movies.</div><br>
+  <div class="container">
+   <table class="table">
+    <tr class="tr">
+        <th>Title</th>
+        <th>Year</th>
+    </tr>
+    <tr repeat.for="movie of movies">
+       <td>${movie.title}</td>
+       <td>${movie.releaseYear}</td>
+    </tr>
+  </table>
+</div>
+  <button class="buttonM" click.trigger="changeMessage()">change message</button><br>
+  <compose view-model="./module/current-date/currentDate"></compose>
+</template>

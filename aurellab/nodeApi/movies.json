@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Star Wars",
+        "releaseYear": 1983,
+        "cast": "Star",
+        "info": "this movie was fav",
+        "pic": "http://nerdist.com/wp-content/uploads/2015/09/Star-Wars-saga-1-6.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Star Trek: Beginning",
+        "releaseYear": 1981,
+        "info": "this movie was fav",
+        "pic": "http://nothingbutgeek.com/wp-content/uploads/2017/07/star-trek-timelines.jpg"
+    },
+    {
+        "id": 21,
+        "title": "Shrek",
+        "releaseYear": 2004,
+        "info": " with main character named Shrek",
+        "pic": "https://vignette.wikia.nocookie.net/shrek/images/c/cc/Shrek_smiling.jpg/revision/latest?cb=20130413033028"
+    },
+    {
+        "id": 69,
+        "title": "Starwars: A new Hope",
+        "releaseYear": 2017,
+        "info": "",
+        "pic": "",
+        "cast": ""
+    }
+]
