@@ -38,11 +38,11 @@ router.route('/movies')
         });
 
     })
-    // create a bear (accessed at POST http://localhost:8080/api/bears)
+    //update movie
     .put(function (req, res) {
         var movie = { id: req.body.id, title: req.body.title, releaseYear: req.body.releaseYear, info: req.body.info, pic: req.body.pic, cast: req.body.cast };
         // save the bear and check for errors
-        console.log("INSIDE PUT")
+        console.log("INSIDE PUT",movie)
         fs.readFile("./movies.json", function (err, result) {
             let movies = JSON.parse(result);
             let movieInDb = movies.find(x => x.id == movie.id);
@@ -51,6 +51,7 @@ router.route('/movies')
             res.json(movie);
         });
     })
+    //create movie
     .post(function (req, res) {
         var movie = { id: req.body.id, title: req.body.title, releaseYear: req.body.releaseYear, info: req.body.info, pic: req.body.pic, cast: req.body.cast };
         // save the bear and check for errors

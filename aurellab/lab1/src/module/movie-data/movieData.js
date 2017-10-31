@@ -24,12 +24,12 @@ export class MovieData {
     return movie;
   }
   async save(movie) {
-    let response = await this.http.post(this.baseUrl, movie);
-    console.log("SAVEREST: ", response);
+    let responseSpost = await this.http.post(this.baseUrl, movie);
+    console.log("responseSpost: ", responseSpost);
   }
   async update(movie, id) {
-    let response = await this.http.put(this.baseUrl, movie);
-    console.log("RES:", response);
+    let responseUpdate = await this.http.put(this.baseUrl, movie);
+    console.log("responseUpdate:", responseUpdate);
 
   }
 }

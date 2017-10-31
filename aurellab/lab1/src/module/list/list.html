@@ -1,7 +1,7 @@
 <template>
   <!-- Page Content -->
   <div class="container">
-
+    <div class="row text-center">
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <h2 class="display-3">A Warm Welcome!</h2>
@@ -29,7 +29,7 @@
                    var dar in attribute bayad esme route o bede va ye parametr dashte bashei ke id misaze hatman bayad id dashte bashe va
                   bara id az id movi.id estefade mikoni  -->
               <!-- this code in top do the same az button below)-->
-              <button class="btn btn-primary" click.delegate="navigateToDetails(movie.id)">Mer detaljer</button>
+              <button class="btn btn-primary" click.delegate="navigateToDetails(movie.id)">More details</button>
               <a route-href="route:edit; params.bind:{id:movie.id}" class="btn btn-primary">Edit</a>
             </div>
           </div>
@@ -37,13 +37,17 @@
         </div>
 
         <!-- /.row -->
-      </div>
-      <button class="btn btn-primary" click.delegate="navigateToCreate()">Create details</button>
-      <!-- div repeat for ="movie of movies" div-->
-      <button class="buttonM" click.trigger="changeMe()">add info</button>
+      </div></br>
+    
+    <div class ="create">
+      <button class="btn btn-primary" click.delegate="navigateToCreate()">Create Movie</button><br>
+      <!-- div repeat for ="movie of movies" div>
+      <button class="buttonM" click.trigger="changeMe()">add info</button-->
       <br>
-
+     </div>
       <compose view-model="../../module/current-date/currentDate"></compose>
     </div>
+  </div>
+  </div>
     <!-- /.container -->
 </template>

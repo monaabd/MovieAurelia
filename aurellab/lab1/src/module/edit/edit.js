@@ -31,12 +31,14 @@ export class Edit {
     if (this.isNew) {
       //skapa new
       await this.data.save(this.movie.getEntity());
+    
     } else {
       //updatera
-      await this.data.update(this.movie.getEntity(), this.movie.id);
+       await  this.data.update(this.movie.getEntity(), this.movie.id);
+      
     }
 
     this.router.navigateToRoute('list');
 
   }
-}
+} 

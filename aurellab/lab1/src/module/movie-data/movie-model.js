@@ -8,7 +8,7 @@ export class MovieModel {
       entity = { pic: '', id: '', title: '', releaseYear: '', info: '', cast: '' };
     }
     this._entity = entity;
-    this.pic = entity.pic;
+    //this.pic = entity.pic;
   }
   getEntity() {
     return this._entity;
@@ -36,6 +36,12 @@ export class MovieModel {
   }
   set info(value) {
     this._entity.info = value;
+  }
+  get pic() {
+    return this._entity.pic;
+  }
+  set pic(value) {
+    this._entity.pic = value;
   }
   toggleInfo() {
     this.showInfo = !this.showInfo;
