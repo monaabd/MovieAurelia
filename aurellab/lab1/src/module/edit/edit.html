@@ -9,18 +9,18 @@
       </div>
      
           <div class="panel-body">
-             <form class="form-horizontal">
+             <form class="form-horizontal" validate.bind="validate"  submit.trigger="saveEdit()">
                 <div class="parallax"></div>
                 <div class="form-group" if.bind="isNew">
                     <label class="col-sm-2  control-label"> Id </label>
                     <div class="col-sm-10">
-                      <input type="text" placeholder="Id" value.bind="movie.id" class="form-control" >
+                      <input type="text" placeholder="Id" value.bind="movie.id"  class="form-control" >
                     </div>
                  </div>
                <div class="form-group">
                   <label class="col-sm-2  control-label"> Title </label>
                   <div class="col-sm-10">
-                    <input type="text" placeholder="Title" value.bind="movie.title" class="form-control" >
+                    <input type="text" placeholder="Title" value.bind="movie.title & validate"   class="form-control" >
                   </div>
                </div>
                <div class="form-group">
@@ -36,7 +36,7 @@
                   <input type="text" placeholder="Add picture's url" value.bind="movie.pic" class="form-control">
                  </div>
               </div>
-               <button class="btn btn-primary" click.trigger="saveEdit()">Save</button>
+               <input type="submit" value="Save" class="btn btn-primary"  />
            </form> 
           
         </div> 

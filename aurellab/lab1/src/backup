@@ -1,70 +1,50 @@
-
-import { HttpClient } from 'aurelia-http-client';
-import {MovieData} from "./movieData";
-// import movies from './movies.json';
-//baraye vared kardan json rahe paino estefade kon age nakhasti movieData.js o joda kelas barash doros koni
-
-export class App {
-  constructor(movieData) {
-    this.message = '';
-    //this.http = new HttpClient();
-    this.movieData=movieData;
-    
+export class Edit {
+  isNew = false;
+  constructor(movieData, router, validation) {
+    //movieData hamon modelview ke doroskardim va inject kardim
+    this.data = movieData;
+    this.router = router;
+    this.validation = validation.on(this)
+         .ensure('movie.title')
+            .isNotEmty()
+            .hasMinLength(3)
+            .hasMaxLength(100)
+         .ensure('movie.releaseYear')
+             .isNumber()
+             .isBetween(1900, 2100);
   }
-  async activate() {
-    this.message = 'list of movies';
-    let result;
-    try {
-      result = await this.http.get('movies.json').then(response =>{
-        this.movies = response.content;
-        console.log(response.content, 'response');
-      });
-    } catch (error) {
-      console.log('YOU GOT AN ERROR');
+  async activate(param) {
+    //in param inja dadei ke ma midim harchi esmesh mitone
+    //bashe va ba on params ke to html be name params bara route fargh dare on hatman
+    //bayad params bashe chon parametrike lazeme va ma hamishe id midim
+    if (!param || !param.id) {
+      this.isNew = true;
+      this.movie = new MovieModel();
+      this.validation.validation();
+    } else {
+      let movieJSON = await this.data.getById(param.id);
+      this.movie = new MovieModel(movieJSON);
+      this.validation.validation();
     }
-    
-
-    // let result;
-    // this.http.get('movies.json').then(response => {
-    //    result = response;
-    //    console.log("result inside", result);
-    // });
-
-    //  .then(response => {
-    //    //this.movies = response.content;
-    //  });
   }
-  changeMessage() {
-    this.message = 'Bye';
+  get header() {
+    return this.isNew ? 'Creating: ' : 'Editing: ';
+  }
+
+  async saveEdit() {
+    if (this.isNew) {
+      //skapa new
+      //send the movie to the server when the validation is ok
+      await this.validation.validate().then(() => {
+        this.data.save(this.movie.getEntity());
+      });
+    } else {
+      //updatera
+      await this.validation.validate().then(() => {
+        this.data.update(this.movie.getEntity(), this.movie.id);
+      });
+    }
+
+    this.router.navigateToRoute('list');
   }
 }
-
-
-
-///////////////////////////////////
-app.html
-<template>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="#" class="navbar-brand">Movies</a>
-      </div>
-    </div>
-  </nav>
-  <div class="message-class">${message}</div>
-  <div> you have ${movies.length} movies.</div><br>
-  <div class="container">
-   <table class="table">
-    <tr class="tr">
-        <th>Title</th>
-        <th>Year</th>
-    </tr>
-    <tr repeat.for="movie of movies">
-       <td>${movie.title}</td>
-       <td>${movie.releaseYear}</td>
-    </tr>
-  </table>
-</div>
-  <button class="buttonM" click.trigger="changeMessage()">change message</button><br>
-  <compose view-model="./module/current-date/currentDate"></compose>
-</template>

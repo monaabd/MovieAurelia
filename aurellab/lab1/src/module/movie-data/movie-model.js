@@ -1,9 +1,9 @@
 
-
 export class MovieModel {
   _showInfo = false;
 
   constructor(entity) {
+
     if (!entity) {
       entity = { pic: '', id: '', title: '', releaseYear: '', info: '', cast: '' };
     }

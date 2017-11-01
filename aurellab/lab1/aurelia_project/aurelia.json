@@ -65,5 +65,12 @@
     "attributes": "resources/attributes",
     "valueConverters": "resources/value-converters",
     "bindingBehaviors": "resources/binding-behaviors"
+  },
+  "aurelia-validation" :{
+    "name": "aurelia-validation",
+    "path": "../node_modules/aurelia-validation/dist/amd",
+    "main": "aurelia-validation"
   }
-}
+  }
+  
+

@@ -1,12 +1,28 @@
 <template>
- <h3>${movie.title}</h3>
-   <div> Released in ${movie.releaseYear}
-     </div>
-    <div>
-      <button click.delegate="navigateBackToStart()"
-        class="btn btn-default">
-        Back to start
-      </button>
-    </div> 
-
+    <div class="container">
+        <div class="row text-center">
+            <div class="parallax"></div>
+              
+                <div class="col-lg-3 col-md-6 mb-4">
+                  <div class="card">
+                    <img class="card-img-top" if.bind="movie.pic" src.bind="movie.pic" height="160" width="170" alt="">
+        
+                    <div class="card-body">
+                      <h4 class="card-title"> Title ${movie.title}</h4>
+                      <p class="card-text">${movie.releaseYear} year</p>
+        
+                      <p if.bind="movie.showInfo">${movie.info}</p>
+                    </div>
+                  <div>
+                <button click.delegate="navigateBackToStart()"
+                  class="btn btn-default">
+                  Back to start
+                </button>
+              </div> 
+              
+            </div>
+          </div> 
+        </div> 
+        <div class="parallax"></div>  
+      </div>   
 </template>

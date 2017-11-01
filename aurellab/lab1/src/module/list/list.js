@@ -5,6 +5,7 @@ import { MovieModel } from '../../module/movie-data/movie-model';
 import '../../styles/styles.scss';
 import './list.scss';
 import { Router } from 'aurelia-router';
+
 //currentDate model ke dari inja nemikhad biyari chon dar app view as compose estefade kardi ke mix mikoni 2 ta modelo
 
 // import movies from './movies.json';
