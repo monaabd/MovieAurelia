@@ -3,14 +3,14 @@
   <div class="container">
     <div class="row text-center">
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
       <h2 class="display-3">A Warm Welcome!</h2>
       <p class="lead"> Most watched movies</p>
+      <!--img class="img-fluid" src="" alt=""-- >
       <!--a href="#" class="btn btn-primary btn-lg">Call to action!</a-->
-    </header>
-
+    </div>
     <!-- Page Features -->
     <div class="row text-center">
+    <div class="parallax"></div>
       <div repeat.for="movie of movies">
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card">
@@ -33,21 +33,25 @@
               <a route-href="route:edit; params.bind:{id:movie.id}" class="btn btn-primary">Edit</a>
             </div>
           </div>
-
+      </div>
+   
+    </div> 
+      <!-- /.row -->
+    <div class="row text-center">
+      <div class="panel-body">
+        <form class="form-vertical">
+          <div class ="create">
+            <button class="btn btn-primary" click.delegate="navigateToCreate()">Create Movie</button>
+            <!-- div repeat for ="movie of movies" div>
+            <button class="buttonM" click.trigger="changeMe()">add info</button-->
+          
         </div>
-
-        <!-- /.row -->
-      </div></br>
-    
-    <div class ="create">
-      <button class="btn btn-primary" click.delegate="navigateToCreate()">Create Movie</button><br>
-      <!-- div repeat for ="movie of movies" div>
-      <button class="buttonM" click.trigger="changeMe()">add info</button-->
-      <br>
-     </div>
+        </form>
+      </div>
+    </div> 
       <compose view-model="../../module/current-date/currentDate"></compose>
+  
+      <div class="parallax"></div> 
     </div>
-  </div>
-  </div>
     <!-- /.container -->
 </template>
