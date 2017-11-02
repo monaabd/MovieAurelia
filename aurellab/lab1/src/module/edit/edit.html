@@ -9,7 +9,7 @@
       </div>
      
           <div class="panel-body">
-             <form class="form-horizontal"  submit.trigger="saveEdit()" validate.bind="validationController" >
+             <form class="form-horizontal"  submit.trigger="saveEdit()" >
                 <div class="parallax"></div>
                 <div class="form-group" if.bind="isNew">
                     <label class="col-sm-2  control-label"> Id </label>
@@ -37,7 +37,7 @@
                  </div>
               </div>
               <!-- in kode pain disable mishe age validation ejra nemishe  disabled.bind="!movie.validationController.result.isValid" -->
-               <input type="submit"   value="Save"  class="btn btn-primary"/>
+               <input type="submit"   value="Save" disabled.bind="!isValid"  class="btn btn-primary"/>
            </form> 
           
         </div> 

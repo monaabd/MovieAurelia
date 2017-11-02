@@ -2,8 +2,8 @@ import { inject, NewInstance } from 'aurelia-framework';
 import { MovieData } from '../../module/movie-data/movieData';
 import { Router } from 'aurelia-router';
 import { MovieModel } from '../../module/movie-data/movie-model';
-import {ValidationController} from 'aurelia-validation';
-import { BootstrapFormRenderer} from '../../bootstrap-form-renderer';
+import { ValidationController } from 'aurelia-validation';
+import { BootstrapFormRenderer } from '../../bootstrap-form-renderer';
 @inject(MovieData, Router, NewInstance.of(ValidationController))
 export class Edit {
   isNew = false;
@@ -19,7 +19,6 @@ export class Edit {
   }
 
   async activate(param) {
-    
     //in param inja dadei ke ma midim harchi esmesh mitone
     //bashe va ba on params ke to html be name params bara route fargh dare on hatman
     //bayad params bashe chon parametrike lazeme va ma hamishe id midim
@@ -27,39 +26,38 @@ export class Edit {
     //vaghti validation inja bedim yani etelati ke miyad az server ok bashe
     if (!param || !param.id) {
       this.isNew = true;
-      this.movie = new MovieModel(null, this.validationController);
+      this.movie = new MovieModel();
     } else {
       let movieJSON = await this.data.getById(param.id);
-      this.movie = new MovieModel(movieJSON, this.validationController);
+      this.movie = new MovieModel(movieJSON);
     }
   }
   get header() {
     return this.isNew ? 'Creating: ' : 'Editing: ';
   }
+  get  isValid() {
+    return  this.validationController.errors.length  ===  0;
+  }
 
   async saveEdit() {
-    if (this.isNew) {
-      //skapa new
-      //send the movie to the server when the validation is ok
-      //try this first if it does not work retunr err
-      //await > do this validation ke promise namide mishe bad boro badi va age klara nakard debug bede
+    //skapa new
+    //send the movie to the server when the validation is ok
+    //try this first if it does not work retunr err
+    //await > do this validation ke promise namide mishe bad boro badi va age klara nakard debug bede
+    let validationResult = await this.validationController.validate();
+    if (validationResult.valid) {
       try {
-        await this.validationController.validate();
-        await this.data.save(this.movie.getEntity());
-        debugger;
+        if (this.isNew) {
+          await this.data.save(this.movie.getEntity());
+        } else {
+          await this.data.update(this.movie.getEntity(), this.movie.id);
+        }
+        this.router.navigateToRoute('list');
       } catch (err) {
-        alert(err);
+        alert('fel vid sparning');
       }
     } else {
-      //updatera
-      try {
-        await this.validationController.validate()
-        await  this.data.update(this.movie.getEntity(), this.movie.id);
-        //debugger;
-      } catch (err) {
-        alert(err);
-      }
+      alert('validation error');
     }
-    this.router.navigateToRoute('list');
   }
 }

@@ -31,6 +31,7 @@
               <!-- this code in top do the same az button below)-->
               <button class="btn btn-primary" click.delegate="navigateToDetails(movie.id)">More details</button>
               <a route-href="route:edit; params.bind:{id:movie.id}" class="btn btn-primary">Edit</a>
+              <button class="btn btn-primary" click.delegate="deleteMovie(movie.id)">Delete</button>
             </div>
           </div>
       </div>
