@@ -1,1 +1,49 @@
-[{"id":1,"title":"11","releaseYear":2,"info":"this movie was fav","pic":"http://nerdist.com/wp-content/uploads/2015/09/Star-Wars-saga-1-6.jpg","cast":"Star"},{"id":2,"title":"Star Trek","releaseYear":1981,"info":"this movie was fav","pic":"http://nothingbutgeek.com/wp-content/uploads/2017/07/star-trek-timelines.jpg"},{"id":3,"title":"Marry Puppins","releaseYear":1980,"info":" with main character..","pic":"https://dlwsd4gyk2o60.cloudfront.net/a3/14/3713884e410f9fde872081237b6f/mary-poppins-returns-what-we-know-hr.jpg"},{"id":4,"title":"Breack fast at tiffany's","releaseYear":1987,"info":"","pic":"https://assets.vogue.com/photos/589189868c64075803ad0ecb/master/pass/03-danish-breakfast-at-tiffanys.jpg","cast":""},{"id":5,"title":"A Good Year","releaseYear":2006,"info":"","pic":"https://images-na.ssl-images-amazon.com/images/I/8100xbMY1jL._RI_.jpg","cast":""}]
+[
+    {
+        "id": 1,
+        "title": "St",
+        "releaseYear": 11,
+        "info": "this movie was fav",
+        "pic": "http://nerdist.com/wp-content/uploads/2015/09/Star-Wars-saga-1-6.jpg",
+        "cast": "Star"
+    },
+    {
+        "id": 2,
+        "title": "Star Trek",
+        "releaseYear": 1981,
+        "info": "this movie was fav",
+        "pic": "http://nothingbutgeek.com/wp-content/uploads/2017/07/star-trek-timelines.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Marry Puppins",
+        "releaseYear": 1980,
+        "info": " with main character..",
+        "pic": "https://dlwsd4gyk2o60.cloudfront.net/a3/14/3713884e410f9fde872081237b6f/mary-poppins-returns-what-we-know-hr.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Breack fast at tiffany's",
+        "releaseYear": 1987,
+        "info": "",
+        "pic": "https://assets.vogue.com/photos/589189868c64075803ad0ecb/master/pass/03-danish-breakfast-at-tiffanys.jpg",
+        "cast": ""
+    },
+    {
+        "id": 5,
+        "title": "A Good Year",
+        "releaseYear": 2006,
+        "info": "",
+        "pic": "https://images-na.ssl-images-amazon.com/images/I/8100xbMY1jL._RI_.jpg",
+        "cast": ""
+    },
+    {
+        "id": 8,
+        "title": "Mo",
+        "releaseYear": 1898,
+        "info": "",
+        "pic": "",
+        "cast": ""
+    }
+    
+]

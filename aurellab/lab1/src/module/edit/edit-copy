@@ -23,8 +23,6 @@ export class Edit {
     //in param inja dadei ke ma midim harchi esmesh mitone
     //bashe va ba on params ke to html be name params bara route fargh dare on hatman
     //bayad params bashe chon parametrike lazeme va ma hamishe id midim
-    //***in pain jayii ke ma data az server migirim ,mibini movieJson miyad
-    //vaghti validation inja bedim yani etelati ke miyad az server ok bashe
     if (!param || !param.id) {
       this.isNew = true;
       this.movie = new MovieModel(null, this.validationController);
@@ -53,7 +51,7 @@ export class Edit {
     } else {
       //updatera
       try {
-        await this.validationController.validate()
+        await this.validationController.validate();
         await  this.data.update(this.movie.getEntity(), this.movie.id);
         //debugger;
       } catch (err) {

@@ -1,14 +1,27 @@
+import {ValidationRules} from 'aurelia-validation';
 
 export class MovieModel {
   _showInfo = false;
+  validationController = null;
 
-  constructor(entity) {
-
+  constructor(entity, validationController) {
+    this.validationController = validationController;
     if (!entity) {
       entity = { pic: '', id: '', title: '', releaseYear: '', info: '', cast: '' };
     }
     this._entity = entity;
-    //this.pic = entity.pic;
+
+    ValidationRules
+    .ensure(m => m.title)
+       .minLength(3)
+       .maxLength(100)
+       .required().withMessage('${$displayName} can not be blank.')
+   
+    .ensure(m => m.releaseYear)
+       .required().withMessage('${$displayName} can not be blank.')
+   .ensure(m => m.id)
+       .required().withMessage('${$displayNem} can not be blank.')    
+      .on(this);
   }
   getEntity() {
     return this._entity;
