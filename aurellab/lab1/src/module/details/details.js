@@ -12,11 +12,11 @@ export class Details {
     this.data = movieData;
     this.router = router;
   }
-
-  async activate(params) {
+ //movie esmesh har chi mitone bashe e, param ,,..
+  async activate(movie) {
     
-    console.log("PARAMETERS", params);
-    this.movie = await this.data.getById(params.id);
+    console.log("Movie", movie);
+    this.movie = await this.data.getById(movie.id);
   }
   navigateBackToStart() {
     this.router.navigateToRoute('list');

@@ -10,7 +10,7 @@ export class MovieModel {
       entity = { pic: '', id: '', title: '', releaseYear: '', info: '', cast: '' };
     }
     this._entity = entity;
-
+   
     ValidationRules
     .ensure(m => m.title)
        .minLength(3)
@@ -23,6 +23,8 @@ export class MovieModel {
        .required().withMessage('${$displayNem} can not be blank.')    
       .on(this);
   }
+
+  
   getEntity() {
     return this._entity;
   }
@@ -67,15 +69,9 @@ export class MovieModel {
   }
   get message() {
     return this.showInfo === true ? 'Less info' : 'More info';
-  }
+  } 
   //kode khate bala ? yani age show info true ast less info ro neshon bede otherwise more info ro neshon
   // in code ya onike bala mostaghm neveshti dota yeki kar mikone on
-  //on balai ham getero setter dare age bekhay khodet
-  //avas koni in paini rahattare get pic() {
-  //   return this._entity.pic;
-  // }
-  // set pic(value) {
-  //   this._entity.pic = value;
-  // }
+ 
 }
 
