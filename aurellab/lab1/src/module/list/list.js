@@ -47,9 +47,9 @@ export class List {
   navigateToCreate() {
     this.router.navigateToRoute('edit');
   }
-  // deleteMovie(movie) {
-  //   var m= this.movie
-  //.splice(this.movie.id === id);
-  //   return this.movie = this.movie;
-  // }
+  deleteMovie(movie) {
+     this.movies= this.movies.filter(function(element) {
+      return element.id !== movie.id;
+    });
+  }
 }
